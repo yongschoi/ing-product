@@ -1,0 +1,58 @@
+spring:
+  profiles:
+    active: local
+---
+server:
+  port: 8082
+
+logging:
+  level:
+    yongs:
+      temp: DEBUG
+          
+spring:
+  config:
+    activate:
+      on-profile: local
+  application:
+    name: ing-product
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: example
+      authentication-database: admin
+      username: scott
+      password: tiger
+
+minio:
+  host: minio
+  port: 9000
+  
+---
+server:
+  port: 8080
+
+logging:
+  level:
+    yongs:
+      temp: INFO
+  
+spring:
+  config:
+    activate:
+      on-profile: kube
+  application:
+    name: ing-product
+  data:
+    mongodb:
+      host: mongo
+      port: 27017
+      database: example
+      authentication-database: admin
+      username: scott
+      password: tiger
+
+minio:
+  host: minio
+  port: 9000
