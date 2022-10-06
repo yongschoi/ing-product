@@ -18,12 +18,10 @@ spring:
     name: ing-product
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: example
+      uri: mongodb://localhost:27017/example
       authentication-database: admin
       username: scott
-      password: tiger
+      password: tiger 
 
 minio:
   host: minio
@@ -46,13 +44,11 @@ spring:
     name: ing-product
   data:
     mongodb:
-      host: mongo
-      port: 27017
-      database: example
-      authentication-database: admin
-      username: scott
-      password: tiger
+      uri: ${MONGODB_URI}
+      authentication-database: ${MONGODB_AUTH}
+      username: ${MONGODB_USER}
+      password: ${MONGODB_PASSWORD}
 
 minio:
-  host: minio
-  port: 9000
+  host: ${MINIO_HOST}
+  port: ${MINIO_PORT}
